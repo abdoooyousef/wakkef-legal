@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="index,follow" />
+  <title>Privacy Policy · Wakkef!</title>
+  <meta name="description" content="Privacy Policy for Wakkef! — a timing and precision mobile game by AYN Developer." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800;900&family=Playfair+Display:wght@700;900&family=Inter:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  />
+  <style>
+    :root {
+      --bg: #0d0c0a;
+      --bg-soft: #15140f;
+      --bg-card: #1c1a14;
+      --gold: #d4b36c;
+      --gold-soft: #d4b36c22;
+      --gold-border: #d4b36c55;
+      --text: #f5efe2;
+      --text-soft: #b9b1a0;
+      --text-faint: #7e786c;
+      --accent: #e57373;
+      --radius: 14px;
+      --maxw: 760px;
+    }
+
+    * { box-sizing: border-box; }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* RTL when Arabic is active */
+    body.ar { direction: rtl; font-family: 'Cairo', system-ui, sans-serif; }
+    body.ar .lang-en { display: none; }
+    body.en .lang-ar { display: none; }
+
+    .page {
+      max-width: var(--maxw);
+      margin: 0 auto;
+      padding: 40px 24px 80px;
+    }
+
+    /* ── Header ───────────────────────────────────────────────── */
+    .hero {
+      text-align: center;
+      padding: 56px 0 40px;
+      border-bottom: 1px solid var(--gold-border);
+      margin-bottom: 40px;
+      position: relative;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 6px 14px;
+      background: var(--gold-soft);
+      border: 1px solid var(--gold-border);
+      border-radius: 999px;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 2px;
+      color: var(--gold);
+      text-transform: uppercase;
+      margin-bottom: 18px;
+    }
+
+    h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 42px;
+      font-weight: 900;
+      margin: 0 0 14px;
+      letter-spacing: -1px;
+      color: var(--text);
+    }
+    body.ar h1 { font-family: 'Cairo', sans-serif; letter-spacing: 0; }
+
+    .subtitle {
+      color: var(--text-soft);
+      font-size: 15px;
+      margin: 0 0 22px;
+    }
+
+    .updated {
+      display: inline-block;
+      color: var(--text-faint);
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.6px;
+      text-transform: uppercase;
+    }
+
+    /* ── Language toggle ──────────────────────────────────────── */
+    .lang-toggle {
+      position: fixed;
+      top: 18px;
+      right: 18px;
+      background: var(--bg-card);
+      border: 1px solid var(--gold-border);
+      border-radius: 999px;
+      padding: 4px;
+      display: flex;
+      gap: 4px;
+      z-index: 10;
+    }
+    body.ar .lang-toggle { right: auto; left: 18px; }
+
+    .lang-toggle button {
+      background: transparent;
+      border: 0;
+      padding: 6px 14px;
+      border-radius: 999px;
+      color: var(--text-soft);
+      cursor: pointer;
+      font-weight: 700;
+      font-size: 12px;
+      letter-spacing: 0.5px;
+      font-family: inherit;
+      transition: all 200ms ease;
+    }
+    .lang-toggle button.active {
+      background: var(--gold);
+      color: var(--bg);
+    }
+    .lang-toggle button:hover:not(.active) {
+      color: var(--text);
+    }
+
+    /* ── Sections ─────────────────────────────────────────────── */
+    section {
+      background: var(--bg-card);
+      border: 1px solid #2a261d;
+      border-radius: var(--radius);
+      padding: 28px 28px 24px;
+      margin-bottom: 18px;
+    }
+
+    section h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 22px;
+      margin: 0 0 14px;
+      color: var(--gold);
+      font-weight: 800;
+      letter-spacing: -0.3px;
+    }
+    body.ar section h2 { font-family: 'Cairo', sans-serif; }
+
+    section h3 {
+      font-size: 14px;
+      margin: 22px 0 8px;
+      color: var(--text);
+      font-weight: 800;
+      letter-spacing: 0.3px;
+    }
+
+    p, li { font-size: 15px; color: var(--text-soft); margin: 10px 0; }
+
+    ul { padding-left: 22px; }
+    body.ar ul { padding-left: 0; padding-right: 22px; }
+
+    li { margin: 6px 0; }
+
+    strong { color: var(--text); font-weight: 700; }
+
+    code, .mono {
+      font-family: 'JetBrains Mono', ui-monospace, Menlo, monospace;
+      background: var(--gold-soft);
+      color: var(--gold);
+      padding: 2px 7px;
+      border-radius: 5px;
+      font-size: 13px;
+    }
+
+    /* Highlighted disclaimer block */
+    .disclaimer {
+      background: linear-gradient(135deg, #2a1a1a, #1c1a14);
+      border: 1px solid #5e3a3a;
+      border-radius: var(--radius);
+      padding: 22px 24px;
+      margin: 28px 0;
+    }
+    .disclaimer h3 {
+      color: var(--accent);
+      margin-top: 0;
+      font-size: 13px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+    .disclaimer p { color: var(--text); font-size: 14px; }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      margin-top: 50px;
+      padding-top: 28px;
+      border-top: 1px solid #2a261d;
+      color: var(--text-faint);
+      font-size: 12px;
+    }
+
+    footer a {
+      color: var(--gold);
+      text-decoration: none;
+      font-weight: 700;
+    }
+    footer a:hover { text-decoration: underline; }
+
+    /* ── Mobile ───────────────────────────────────────────────── */
+    @media (max-width: 600px) {
+      .page { padding: 30px 18px 60px; }
+      h1 { font-size: 32px; }
+      section { padding: 22px 20px 18px; }
+      .hero { padding: 40px 0 30px; }
+    }
+  </style>
+</head>
+<body class="en">
+  <div class="lang-toggle">
+    <button id="btn-en" class="active" onclick="setLang('en')">EN</button>
+    <button id="btn-ar" onclick="setLang('ar')">العربية</button>
+  </div>
+
+  <div class="page">
+    <!-- ═════════════════════════════════════════════════ -->
+    <!-- HEADER -->
+    <!-- ═════════════════════════════════════════════════ -->
+    <header class="hero">
+      <span class="badge lang-en">Wakkef! · Legal</span>
+      <span class="badge lang-ar">وقف! · القانونية</span>
+
+      <h1 class="lang-en">Privacy Policy</h1>
+      <h1 class="lang-ar">سياسة الخصوصية</h1>
+
+      <p class="subtitle lang-en">
+        How we handle data in Wakkef! — a timing &amp; precision game by
+        AYN Developer.
+      </p>
+      <p class="subtitle lang-ar">
+        كيف نتعامل مع بياناتك داخل لعبة وقف! — لعبة الدقة والتوقيت
+        من AYN Developer.
+      </p>
+
+      <span class="updated lang-en">Effective: May 20, 2026</span>
+      <span class="updated lang-ar">سارية من: 20 مايو 2026</span>
+    </header>
+
+    <!-- ═════════════════════════════════════════════════ -->
+    <!-- ENGLISH VERSION -->
+    <!-- ═════════════════════════════════════════════════ -->
+    <div class="lang-en">
+
+      <section>
+        <h2>1. Who we are</h2>
+        <p>
+          Wakkef! is a free mobile game developed and published by
+          <strong>AYN Developer</strong> ("we", "us", "our"). This policy
+          explains what information the app collects, how we use it, and
+          your choices.
+        </p>
+        <p>
+          By installing or using Wakkef! you accept the terms of this
+          policy. If you do not agree, please uninstall the app.
+        </p>
+      </section>
+
+      <section>
+        <h2>2. Information we collect</h2>
+
+        <h3>2.1 Account information (optional)</h3>
+        <p>
+          If you choose to sign in with Google, we receive your
+          <strong>email address</strong> and <strong>display name</strong>
+          from Google Sign-In. You can play Wakkef! fully anonymously
+          without signing in — anonymous users are identified only by a
+          random device-scoped ID that contains no personal information.
+        </p>
+
+        <h3>2.2 User-generated content</h3>
+        <p>
+          When you create custom levels inside "My Studio", the
+          <strong>photos</strong> you upload and the AI-extracted cutouts
+          are stored in our cloud (Firebase Storage) so you can play them
+          on any device signed in to your account. Only you and AYN
+          Developer (for moderation purposes) can access this content.
+        </p>
+
+        <h3>2.3 Gameplay data</h3>
+        <p>
+          Scores, levels completed, in-game inventory, achievements, and
+          redeemed promo codes are saved to your account so you can resume
+          on another device.
+        </p>
+
+        <h3>2.4 Diagnostics &amp; crash reports</h3>
+        <p>
+          When the app crashes we collect anonymous crash logs and basic
+          device information (Android version, device model, app version)
+          via Firebase Crashlytics so we can fix bugs. No personal info is
+          attached.
+        </p>
+
+        <h3>2.5 Advertising identifiers</h3>
+        <p>
+          The free version of Wakkef! shows ads served by Google AdMob.
+          AdMob may use your device's <strong>advertising ID</strong> to
+          show personalized or non-personalized ads, depending on your
+          device settings. You can reset or opt out of personalized ads
+          at any time from your device's privacy settings.
+        </p>
+      </section>
+
+      <section>
+        <h2>3. How we use the information</h2>
+        <ul>
+          <li>To run the game and sync progress across your devices.</li>
+          <li>To moderate inappropriate user-generated content.</li>
+          <li>To diagnose crashes and improve stability.</li>
+          <li>To display ads in the free version (via Google AdMob).</li>
+          <li>To respond to support requests you send us.</li>
+        </ul>
+        <p>
+          We do <strong>not</strong> sell, rent, or trade your personal
+          information to third parties.
+        </p>
+      </section>
+
+      <section>
+        <h2>4. Third-party services</h2>
+        <p>
+          Wakkef! relies on the following third-party services. Each has
+          its own privacy policy, which we encourage you to read:
+        </p>
+        <ul>
+          <li>
+            <strong>Firebase</strong> (Google) — Authentication, Firestore
+            database, Cloud Storage, Crashlytics.
+          </li>
+          <li>
+            <strong>Google AdMob</strong> — Advertising network for the
+            free version.
+          </li>
+          <li>
+            <strong>Google Sign-In</strong> — Optional account login.
+          </li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>5. Data retention &amp; deletion</h2>
+        <p>
+          You can delete your account at any time from inside the app:
+          <span class="mono">Settings → Account → Delete account</span>.
+          This removes your profile, custom levels, scores, and inventory
+          within <strong>30 days</strong>.
+        </p>
+        <p>
+          To request data deletion outside the app, email us at
+          <span class="mono">ayn.developer@gmail.com</span> with the
+          subject line "Delete my Wakkef account".
+        </p>
+      </section>
+
+      <section>
+        <h2>6. Children</h2>
+        <p>
+          Wakkef! is rated for ages <strong>13 and above</strong>. We do
+          not knowingly collect personal information from children under
+          13. If you believe a child has provided us with personal
+          information, please contact us and we will delete it.
+        </p>
+      </section>
+
+      <section>
+        <h2>7. Security</h2>
+        <p>
+          We use industry-standard measures (HTTPS for all transport,
+          Firebase security rules, encryption at rest provided by Google
+          Cloud) to protect your data. However, no method of transmission
+          or storage is 100% secure, and we cannot guarantee absolute
+          security.
+        </p>
+      </section>
+
+      <section>
+        <h2>8. Changes to this policy</h2>
+        <p>
+          We may update this policy from time to time. Material changes
+          will be posted on this page with a new "Effective" date.
+          Continued use of Wakkef! after a change means you accept the
+          updated policy.
+        </p>
+      </section>
+
+      <section class="disclaimer">
+        <h3>9. Disclaimer of Warranty &amp; Limitation of Liability</h3>
+        <p>
+          Wakkef! is provided <strong>"as is" and "as available"</strong>
+          without warranties of any kind, whether express or implied,
+          including but not limited to warranties of merchantability,
+          fitness for a particular purpose, non-infringement, or
+          uninterrupted/error-free operation.
+        </p>
+        <p>
+          To the fullest extent permitted by applicable law, AYN
+          Developer, its operators, contributors, partners, and any
+          related parties shall <strong>NOT be liable</strong> for any
+          direct, indirect, incidental, special, consequential, or
+          punitive damages — including but not limited to lost data, lost
+          progress, lost in-game items, lost promo code benefits, device
+          damage, loss of profits, loss of goodwill, or any other
+          intangible loss — arising out of or in connection with your use
+          of, or inability to use, Wakkef!, even if advised of the
+          possibility of such damages.
+        </p>
+        <p>
+          You agree that your sole and exclusive remedy in case of
+          dissatisfaction with Wakkef! is to stop using and uninstall the
+          app. By installing and using Wakkef! you acknowledge that you
+          have read, understood, and accepted this disclaimer in full.
+        </p>
+      </section>
+
+      <section>
+        <h2>10. Contact</h2>
+        <p>
+          Questions about this policy? Email us at
+          <span class="mono">ayn.developer@gmail.com</span>.
+        </p>
+      </section>
+    </div>
+
+    <!-- ═════════════════════════════════════════════════ -->
+    <!-- ARABIC VERSION -->
+    <!-- ═════════════════════════════════════════════════ -->
+    <div class="lang-ar">
+
+      <section>
+        <h2>١. عن الناشر</h2>
+        <p>
+          "وقف!" لعبة موبايل مجانية مطوّرة ومنشورة بواسطة
+          <strong>AYN Developer</strong> ("نحن"). سياسة الخصوصية دي
+          بتشرح أنواع البيانات اللي اللعبة بتجمعها، إزاي بنستخدمها،
+          والخيارات المتاحة لك.
+        </p>
+        <p>
+          بتثبيتك أو استخدامك للعبة "وقف!" أنت بتوافق على شروط السياسة
+          دي. لو مش موافق، من فضلك تـ uninstall اللعبة.
+        </p>
+      </section>
+
+      <section>
+        <h2>٢. البيانات اللي بنجمعها</h2>
+
+        <h3>٢.١ بيانات الحساب (اختياري)</h3>
+        <p>
+          لو اخترت تـ sign in بحسابك في Google، بنستلم منه
+          <strong>الإيميل</strong> و<strong>اسم العرض</strong> بس. وتقدر
+          تلعب "وقف!" بشكل كامل بدون تسجيل دخول — في الحالة دي بيتعرفلك
+          ID عشوائي مربوط بالجهاز فقط، من غير أي معلومات شخصية.
+        </p>
+
+        <h3>٢.٢ المحتوى اللي بتعمله</h3>
+        <p>
+          لما بتعمل levels مخصصة من خلال "My Studio"، الـ
+          <strong>صور</strong> اللي بتـ upload والـ cutouts المستخرجة
+          منها بـ AI بتتخزن على الـ cloud (Firebase Storage) عشان تقدر
+          تلعبها من أي جهاز مسجل دخوله بحسابك. بس أنت و AYN Developer
+          (لأغراض المراجعة) اللي بنقدر نوصل للمحتوى ده.
+        </p>
+
+        <h3>٢.٣ بيانات اللعب</h3>
+        <p>
+          النقاط، الـ levels اللي خلصتها، الـ inventory، الإنجازات،
+          والـ promo codes اللي فعّلتها بتتحفظ على حسابك عشان تكمّل من
+          نفس النقطة على أي جهاز تاني.
+        </p>
+
+        <h3>٢.٤ تقارير الأعطال (Crashes)</h3>
+        <p>
+          لما اللعبة بتقع crashes بنجمع تقارير مجهولة الهوية + معلومات
+          أساسية عن الجهاز (نسخة Android، موديل الجهاز، نسخة اللعبة)
+          عن طريق Firebase Crashlytics عشان نصلّح الـ bugs. مفيش بيانات
+          شخصية مرفقة.
+        </p>
+
+        <h3>٢.٥ معرّفات الإعلانات</h3>
+        <p>
+          النسخة المجانية من "وقف!" بتعرض إعلانات عن طريق Google AdMob.
+          AdMob ممكن تستخدم <strong>Advertising ID</strong> الخاص
+          بجهازك لعرض إعلانات مخصصة أو غير مخصصة، حسب إعدادات جهازك.
+          تقدر تعمل reset أو opt-out من الإعلانات المخصصة في أي وقت من
+          خلال إعدادات الخصوصية في الجهاز.
+        </p>
+      </section>
+
+      <section>
+        <h2>٣. استخدامات البيانات</h2>
+        <ul>
+          <li>تشغيل اللعبة ومزامنة التقدم بين أجهزتك.</li>
+          <li>مراجعة المحتوى المنشأ من المستخدمين لو فيه مخالفات.</li>
+          <li>اكتشاف الأخطاء وتحسين استقرار اللعبة.</li>
+          <li>عرض إعلانات في النسخة المجانية (عن طريق Google AdMob).</li>
+          <li>الرد على طلبات الدعم اللي بتبعتها لنا.</li>
+        </ul>
+        <p>
+          إحنا <strong>ما بنبيعش</strong> أو نأجر أو نتبادل بياناتك
+          الشخصية مع أي طرف خارجي.
+        </p>
+      </section>
+
+      <section>
+        <h2>٤. خدمات الطرف الثالث</h2>
+        <p>
+          "وقف!" بتعتمد على الخدمات التالية، وكل واحدة منهم عندها
+          سياسة خصوصية خاصة بيها بنوصيك تقرأها:
+        </p>
+        <ul>
+          <li>
+            <strong>Firebase</strong> (Google) — المصادقة، قاعدة البيانات
+            Firestore، تخزين الـ Cloud، و Crashlytics.
+          </li>
+          <li>
+            <strong>Google AdMob</strong> — شبكة الإعلانات في النسخة
+            المجانية.
+          </li>
+          <li>
+            <strong>Google Sign-In</strong> — تسجيل دخول اختياري.
+          </li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>٥. الاحتفاظ بالبيانات وحذفها</h2>
+        <p>
+          تقدر تمسح حسابك في أي وقت من داخل اللعبة:
+          <span class="mono">Settings → Account → Delete account</span>.
+          الحذف ده بيمسح ملفك الشخصي والـ levels والنقاط والـ inventory
+          خلال <strong>٣٠ يوم</strong>.
+        </p>
+        <p>
+          لو حابب تطلب حذف بياناتك عن طريق ايميل، ابعت على
+          <span class="mono">ayn.developer@gmail.com</span> بعنوان
+          "Delete my Wakkef account".
+        </p>
+      </section>
+
+      <section>
+        <h2>٦. الأطفال</h2>
+        <p>
+          "وقف!" مصنّفة للأعمار <strong>١٣ سنة فما فوق</strong>. مش
+          بنقصد ولا بنجمع بيانات شخصية من أطفال أقل من ١٣ سنة. لو
+          عندك شك إن طفل ابعتلنا بيانات شخصية، اتواصل معانا وهنحذفها
+          فوراً.
+        </p>
+      </section>
+
+      <section>
+        <h2>٧. الأمان</h2>
+        <p>
+          بنستخدم إجراءات أمنية معيارية (HTTPS لكل النقل، Firebase
+          security rules، تشفير على الـ storage من Google Cloud)
+          لحماية بياناتك. لكن مفيش طريقة نقل أو تخزين آمنة بنسبة ١٠٠٪،
+          وبالتالي مش بنقدر نضمن أمان مطلق.
+        </p>
+      </section>
+
+      <section>
+        <h2>٨. تعديلات السياسة</h2>
+        <p>
+          ممكن نحدّث السياسة دي من وقت للتاني. أي تعديلات جوهرية
+          هتتنشر على الصفحة دي بتاريخ "سارية من" جديد. استخدامك المستمر
+          للعبة بعد التعديل بيعني إنك موافق على النسخة المحدّثة.
+        </p>
+      </section>
+
+      <section class="disclaimer">
+        <h3>٩. إخلاء المسؤولية وحدود الالتزام</h3>
+        <p>
+          لعبة "وقف!" بتُقدَّم <strong>"كما هي" و"كما هي متاحة"</strong>
+          من غير ضمانات من أي نوع، صريحة أو ضمنية، بما في ذلك على سبيل
+          المثال لا الحصر ضمانات قابلية التسويق، أو الملاءمة لغرض معين،
+          أو عدم انتهاك الحقوق، أو التشغيل المستمر بدون أخطاء.
+        </p>
+        <p>
+          إلى أقصى حد يسمح به القانون المعمول به،
+          <strong>AYN Developer</strong> ومشغلوها والمساهمون والشركاء
+          وأي أطراف ذات صلة <strong>لن يكونوا مسؤولين</strong> عن أي
+          أضرار مباشرة أو غير مباشرة أو عرضية أو خاصة أو تبعية أو
+          عقابية — بما في ذلك على سبيل المثال لا الحصر فقدان البيانات،
+          أو فقدان التقدم، أو فقدان عناصر داخل اللعبة، أو فقدان مزايا
+          الـ promo codes، أو تلف الجهاز، أو فوات الأرباح، أو فقدان
+          السمعة، أو أي خسارة غير ملموسة أخرى — ناشئة عن أو متعلقة
+          باستخدامك أو عدم قدرتك على استخدام اللعبة، حتى لو تم إخطارنا
+          بإمكانية حدوث مثل هذه الأضرار.
+        </p>
+        <p>
+          أنت بتوافق إن حقك الحصري والوحيد في حالة عدم رضاك عن "وقف!"
+          هو إنك توقف استخدامك للعبة و تـ uninstall التطبيق. بتثبيتك
+          واستخدامك للعبة، أنت بتقر إنك قرأت وفهمت وقبلت إخلاء
+          المسؤولية ده بالكامل.
+        </p>
+      </section>
+
+      <section>
+        <h2>١٠. التواصل</h2>
+        <p>
+          عندك سؤال عن السياسة دي؟ ابعتلنا على
+          <span class="mono">ayn.developer@gmail.com</span>.
+        </p>
+      </section>
+    </div>
+
+    <!-- ═════════════════════════════════════════════════ -->
+    <!-- FOOTER -->
+    <!-- ═════════════════════════════════════════════════ -->
+    <footer>
+      <p>
+        © 2026 <a href="#">AYN Developer</a> · Wakkef!
+        <br />
+        <span class="lang-en">All rights reserved.</span>
+        <span class="lang-ar">جميع الحقوق محفوظة.</span>
+      </p>
+    </footer>
+  </div>
+
+  <script>
+    function setLang(lang) {
+      document.body.className = lang;
+      document.documentElement.lang = lang === 'ar' ? 'ar' : 'en';
+      document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+      document.getElementById('btn-ar').classList.toggle('active', lang === 'ar');
+      // Persist so refresh keeps the choice.
+      try { localStorage.setItem('wakkef.privacy.lang', lang); } catch (e) {}
+    }
+
+    // Restore preferred language on load, else detect from browser.
+    (function () {
+      let saved = null;
+      try { saved = localStorage.getItem('wakkef.privacy.lang'); } catch (e) {}
+      const initial = saved
+        || (navigator.language && navigator.language.startsWith('ar') ? 'ar' : 'en');
+      setLang(initial);
+    })();
+  </script>
+</body>
+</html>
