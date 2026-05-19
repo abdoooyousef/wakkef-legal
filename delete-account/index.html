@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="index,follow" />
+  <title>Delete Account · Wakkef!</title>
+  <meta name="description" content="Request deletion of your Wakkef! account and all associated data." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800;900&family=Playfair+Display:wght@700;900&family=Inter:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  />
+  <style>
+    :root {
+      --bg: #0d0c0a;
+      --bg-card: #1c1a14;
+      --gold: #d4b36c;
+      --gold-soft: #d4b36c22;
+      --gold-border: #d4b36c55;
+      --text: #f5efe2;
+      --text-soft: #b9b1a0;
+      --text-faint: #7e786c;
+      --accent: #e57373;
+      --radius: 14px;
+      --maxw: 720px;
+    }
+    * { box-sizing: border-box; }
+    html, body {
+      margin: 0; padding: 0;
+      background: var(--bg); color: var(--text);
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+    body.ar { direction: rtl; font-family: 'Cairo', system-ui, sans-serif; }
+    body.ar .lang-en { display: none; }
+    body.en .lang-ar { display: none; }
+    .page { max-width: var(--maxw); margin: 0 auto; padding: 40px 24px 80px; }
+
+    .hero { text-align: center; padding: 56px 0 40px; border-bottom: 1px solid var(--gold-border); margin-bottom: 40px; }
+    .badge {
+      display: inline-block; padding: 6px 14px;
+      background: #5e3a3a44; border: 1px solid #5e3a3a;
+      border-radius: 999px; font-size: 11px; font-weight: 800;
+      letter-spacing: 2px; color: var(--accent);
+      text-transform: uppercase; margin-bottom: 18px;
+    }
+    h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 38px; font-weight: 900; margin: 0 0 14px;
+      letter-spacing: -1px; color: var(--text);
+    }
+    body.ar h1 { font-family: 'Cairo', sans-serif; letter-spacing: 0; }
+    .subtitle { color: var(--text-soft); font-size: 15px; margin: 0; }
+
+    .lang-toggle {
+      position: fixed; top: 18px; right: 18px;
+      background: var(--bg-card); border: 1px solid var(--gold-border);
+      border-radius: 999px; padding: 4px; display: flex; gap: 4px; z-index: 10;
+    }
+    body.ar .lang-toggle { right: auto; left: 18px; }
+    .lang-toggle button {
+      background: transparent; border: 0; padding: 6px 14px;
+      border-radius: 999px; color: var(--text-soft); cursor: pointer;
+      font-weight: 700; font-size: 12px; letter-spacing: 0.5px;
+      font-family: inherit; transition: all 200ms ease;
+    }
+    .lang-toggle button.active { background: var(--gold); color: var(--bg); }
+    .lang-toggle button:hover:not(.active) { color: var(--text); }
+
+    section {
+      background: var(--bg-card); border: 1px solid #2a261d;
+      border-radius: var(--radius); padding: 28px 28px 24px;
+      margin-bottom: 18px;
+    }
+    section h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 22px; margin: 0 0 14px; color: var(--gold);
+      font-weight: 800; letter-spacing: -0.3px;
+    }
+    body.ar section h2 { font-family: 'Cairo', sans-serif; }
+    p, li { font-size: 15px; color: var(--text-soft); margin: 10px 0; }
+    ul, ol { padding-left: 22px; }
+    body.ar ul, body.ar ol { padding-left: 0; padding-right: 22px; }
+    li { margin: 6px 0; }
+    strong { color: var(--text); font-weight: 700; }
+
+    .step-num {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 26px; height: 26px;
+      background: var(--gold-soft); color: var(--gold);
+      border-radius: 50%; font-weight: 900; font-size: 12px;
+      margin-right: 10px; vertical-align: middle;
+    }
+    body.ar .step-num { margin-right: 0; margin-left: 10px; }
+
+    code, .mono {
+      font-family: 'JetBrains Mono', ui-monospace, Menlo, monospace;
+      background: var(--gold-soft); color: var(--gold);
+      padding: 3px 9px; border-radius: 5px; font-size: 13.5px; font-weight: 600;
+    }
+
+    .cta {
+      background: linear-gradient(135deg, #d4b36c, #b8965a);
+      color: var(--bg); padding: 14px 24px; border-radius: 999px;
+      font-weight: 800; text-decoration: none; display: inline-block;
+      margin-top: 8px; letter-spacing: 0.4px; font-size: 13.5px;
+      transition: transform 200ms ease;
+    }
+    .cta:hover { transform: translateY(-1px); }
+
+    .info-box {
+      background: linear-gradient(135deg, #15291a, #1c1a14);
+      border: 1px solid #2d5a3a; border-radius: var(--radius);
+      padding: 18px 22px; margin: 22px 0;
+    }
+    .info-box p { color: var(--text); font-size: 13.5px; margin: 4px 0; }
+    .info-box strong { color: #7ee08c; }
+
+    .table-wrap { overflow-x: auto; margin: 16px 0; }
+    table { width: 100%; border-collapse: collapse; font-size: 13.5px; }
+    th, td {
+      text-align: left; padding: 10px 12px;
+      border-bottom: 1px solid #2a261d;
+    }
+    body.ar th, body.ar td { text-align: right; }
+    th {
+      color: var(--gold); font-weight: 800; font-size: 11.5px;
+      letter-spacing: 1px; text-transform: uppercase;
+    }
+    td { color: var(--text-soft); }
+    td strong { color: var(--text); }
+
+    footer {
+      text-align: center; margin-top: 50px; padding-top: 28px;
+      border-top: 1px solid #2a261d; color: var(--text-faint); font-size: 12px;
+    }
+    footer a { color: var(--gold); text-decoration: none; font-weight: 700; }
+    footer a:hover { text-decoration: underline; }
+
+    @media (max-width: 600px) {
+      .page { padding: 30px 18px 60px; }
+      h1 { font-size: 28px; }
+      section { padding: 22px 20px 18px; }
+      .hero { padding: 40px 0 30px; }
+    }
+  </style>
+</head>
+<body class="en">
+  <div class="lang-toggle">
+    <button id="btn-en" class="active" onclick="setLang('en')">EN</button>
+    <button id="btn-ar" onclick="setLang('ar')">العربية</button>
+  </div>
+
+  <div class="page">
+    <header class="hero">
+      <span class="badge lang-en">Wakkef! · Account Deletion</span>
+      <span class="badge lang-ar">وقف! · حذف الحساب</span>
+
+      <h1 class="lang-en">Delete Your Account</h1>
+      <h1 class="lang-ar">حذف حسابك</h1>
+
+      <p class="subtitle lang-en">
+        Two paths to remove your Wakkef! account and all associated data.
+      </p>
+      <p class="subtitle lang-ar">
+        طريقتان لحذف حسابك في "وقف!" وكل البيانات المرتبطة بيه.
+      </p>
+    </header>
+
+    <!-- ENGLISH -->
+    <div class="lang-en">
+      <section>
+        <h2>Option 1 · In-app deletion (recommended)</h2>
+        <p>
+          The fastest way to delete your account is from inside the app —
+          one tap, no waiting, no email back-and-forth.
+        </p>
+        <ol>
+          <li><span class="step-num">1</span> Open Wakkef! on your device.</li>
+          <li><span class="step-num">2</span> Tap the <strong>Settings</strong> icon (top-right of the home screen).</li>
+          <li><span class="step-num">3</span> Scroll down to the <strong>Account</strong> section.</li>
+          <li><span class="step-num">4</span> Tap <strong>Delete account</strong>.</li>
+          <li><span class="step-num">5</span> Confirm by tapping <strong>Delete forever</strong> in the dialog.</li>
+        </ol>
+        <div class="info-box">
+          <p><strong>What happens immediately:</strong></p>
+          <p>Your profile, every custom level you have made, all your scores, in-game inventory, redeemed promo codes, and the Firebase Auth account itself are wiped within seconds.</p>
+        </div>
+      </section>
+
+      <section>
+        <h2>Option 2 · Email request</h2>
+        <p>
+          If you cannot access the app (e.g. uninstalled it, or signed out and forgot your credentials), email us and we will delete your account manually.
+        </p>
+        <p>Send an email to: <span class="mono">ayn.developer@gmail.com</span></p>
+        <p>Subject line: <span class="mono">Delete my Wakkef account</span></p>
+        <p><strong>Please include in the email body:</strong></p>
+        <ul>
+          <li>The email address linked to your Google sign-in (so we can find your account)</li>
+          <li>Approximate date you started playing (helps locate guest accounts)</li>
+          <li>Any custom level titles you remember (optional, helps verify identity)</li>
+        </ul>
+        <p>
+          We will confirm deletion by email within <strong>7 business days</strong>. The actual data wipe happens within 30 days from the request, per Google Play and GDPR requirements.
+        </p>
+        <a class="cta" href="mailto:ayn.developer@gmail.com?subject=Delete%20my%20Wakkef%20account&body=Please%20delete%20my%20Wakkef%20account%20and%20all%20associated%20data.%0A%0AGoogle%20email%20linked%20to%20account%3A%20%0AApproximate%20start%20date%3A%20%0ACustom%20level%20titles%20I%20remember%3A%20">Send deletion request</a>
+      </section>
+
+      <section>
+        <h2>What gets deleted?</h2>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>Data type</th><th>Deletion timing</th></tr>
+            </thead>
+            <tbody>
+              <tr><td><strong>Profile</strong> (display name, email, photoURL)</td><td>Immediately</td></tr>
+              <tr><td><strong>Custom levels</strong> (photos + AI cutouts)</td><td>Immediately</td></tr>
+              <tr><td><strong>Scores + leaderboard entries</strong></td><td>Immediately</td></tr>
+              <tr><td><strong>In-game inventory + redeemed promo codes</strong></td><td>Immediately</td></tr>
+              <tr><td><strong>Firebase Auth account</strong></td><td>Immediately</td></tr>
+              <tr><td><strong>Anonymized crash logs</strong> (Firebase Crashlytics)</td><td>Within 90 days (auto-rotates)</td></tr>
+              <tr><td><strong>Server backups</strong> (Firebase encrypted)</td><td>Within 30 days</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section>
+        <h2>What is NOT deleted</h2>
+        <p>
+          The following remain after account deletion because they do not contain personal identifiers tied to you:
+        </p>
+        <ul>
+          <li><strong>Anonymous gameplay analytics</strong> — aggregate session counts and level completion rates with no link back to your identity.</li>
+          <li><strong>Anonymized moderation history</strong> — if any of your custom levels were ever reviewed for inappropriate content, the moderation record stays (anonymized) for our records.</li>
+        </ul>
+      </section>
+    </div>
+
+    <!-- ARABIC -->
+    <div class="lang-ar">
+      <section>
+        <h2>الطريقة الأولى - الحذف من داخل اللعبة (موصى بها)</h2>
+        <p>
+          أسرع طريقة لحذف حسابك من جوا اللعبة نفسها - ضغطة واحدة،
+          من غير انتظار، من غير ايميلات.
+        </p>
+        <ol>
+          <li><span class="step-num">١</span> افتح لعبة "وقف!" على جهازك.</li>
+          <li><span class="step-num">٢</span> اضغط على أيقونة <strong>الإعدادات</strong> (فوق يمين الشاشة الرئيسية).</li>
+          <li><span class="step-num">٣</span> انزل لقسم <strong>Account</strong>.</li>
+          <li><span class="step-num">٤</span> اضغط <strong>Delete account</strong>.</li>
+          <li><span class="step-num">٥</span> أكّد بالضغط على <strong>Delete forever</strong> في النافذة.</li>
+        </ol>
+        <div class="info-box">
+          <p><strong>اللي بيتمسح في نفس اللحظة:</strong></p>
+          <p>ملفك الشخصي، كل الـ levels اللي عملتها، كل النقاط، الـ inventory، الـ promo codes، وحساب Firebase Auth نفسه - كله بيتمسح خلال ثواني.</p>
+        </div>
+      </section>
+
+      <section>
+        <h2>الطريقة الثانية - طلب عن طريق الإيميل</h2>
+        <p>
+          لو ما قدرتش توصل للعبة (مثلاً مسحت التطبيق، أو نسيت بيانات الدخول)، ابعتلنا ايميل وإحنا هنحذف حسابك يدوياً.
+        </p>
+        <p>ابعت على: <span class="mono">ayn.developer@gmail.com</span></p>
+        <p>العنوان (Subject): <span class="mono">Delete my Wakkef account</span></p>
+        <p><strong>اكتب في جسم الإيميل:</strong></p>
+        <ul>
+          <li>الإيميل اللي مربوط بحساب Google بتاعك (عشان نلاقي حسابك)</li>
+          <li>تاريخ تقريبي لما بدأت تلعب (يساعد في إيجاد حسابات الـ guests)</li>
+          <li>أسماء أي custom levels فاكرها (اختياري، يساعد في التحقق من هويتك)</li>
+        </ul>
+        <p>
+          هنرد على ايميلك بتأكيد الحذف خلال <strong>٧ أيام عمل</strong>. الحذف الفعلي للبيانات بيحصل خلال ٣٠ يوم من الطلب، حسب متطلبات Google Play و GDPR.
+        </p>
+        <a class="cta" href="mailto:ayn.developer@gmail.com?subject=Delete%20my%20Wakkef%20account&body=Please%20delete%20my%20Wakkef%20account%20and%20all%20associated%20data.%0A%0AGoogle%20email%20linked%20to%20account%3A%20%0AApproximate%20start%20date%3A%20%0ACustom%20level%20titles%20I%20remember%3A%20">ابعت طلب الحذف</a>
+      </section>
+
+      <section>
+        <h2>اللي بيتمسح بالضبط</h2>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>نوع البيانات</th><th>توقيت الحذف</th></tr>
+            </thead>
+            <tbody>
+              <tr><td><strong>الملف الشخصي</strong> (الاسم، الإيميل، صورة البروفايل)</td><td>فوراً</td></tr>
+              <tr><td><strong>الـ Custom levels</strong> (الصور + الـ cutouts)</td><td>فوراً</td></tr>
+              <tr><td><strong>النقاط + leaderboard</strong></td><td>فوراً</td></tr>
+              <tr><td><strong>الـ inventory + الـ promo codes المفعّلة</strong></td><td>فوراً</td></tr>
+              <tr><td><strong>حساب Firebase Auth</strong></td><td>فوراً</td></tr>
+              <tr><td><strong>تقارير الـ crashes</strong> (مجهولة الهوية)</td><td>خلال ٩٠ يوم (rotation تلقائي)</td></tr>
+              <tr><td><strong>النسخ الاحتياطية على السيرفر</strong> (مشفّرة)</td><td>خلال ٣٠ يوم</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section>
+        <h2>اللي مش بيتمسح</h2>
+        <p>الحاجات دي بتفضل بعد الحذف لأنها مش مربوطة بهويتك الشخصية:</p>
+        <ul>
+          <li><strong>إحصائيات اللعب المجمّعة</strong> - أعداد جلسات اللعب الإجمالية ونسب إكمال الـ levels، بدون أي ربط بهويتك.</li>
+          <li><strong>سجل مراجعة المحتوى</strong> - لو أي من الـ levels بتاعتك تم مراجعتها سابقاً للمحتوى المخالف، السجل بيفضل (مجهول الهوية) للأغراض الرقابية.</li>
+        </ul>
+      </section>
+    </div>
+
+    <footer>
+      <p>
+        © 2026 <a href="../">AYN Developer</a> · Wakkef!
+        <br />
+        <a href="../privacy/">
+          <span class="lang-en">Privacy Policy</span>
+          <span class="lang-ar">سياسة الخصوصية</span>
+        </a>
+      </p>
+    </footer>
+  </div>
+
+  <script>
+    function setLang(lang) {
+      document.body.className = lang;
+      document.documentElement.lang = lang === 'ar' ? 'ar' : 'en';
+      document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+      document.getElementById('btn-ar').classList.toggle('active', lang === 'ar');
+      try { localStorage.setItem('wakkef.privacy.lang', lang); } catch (e) {}
+    }
+    (function () {
+      let saved = null;
+      try { saved = localStorage.getItem('wakkef.privacy.lang'); } catch (e) {}
+      const initial = saved || (navigator.language && navigator.language.startsWith('ar') ? 'ar' : 'en');
+      setLang(initial);
+    })();
+  </script>
+</body>
+</html>
