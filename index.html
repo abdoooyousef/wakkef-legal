@@ -3,51 +3,83 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="index,follow" />
   <title>Wakkef! · Legal</title>
-  <style>
-    * { box-sizing: border-box; }
-    body {
-      margin: 0;
-      background: #0d0c0a;
-      color: #f5efe2;
-      font-family: system-ui, -apple-system, sans-serif;
-      min-height: 100vh;
-      display: grid;
-      place-items: center;
-      padding: 24px;
-    }
-    .card {
-      max-width: 480px;
-      text-align: center;
-      padding: 48px 36px;
-      background: #1c1a14;
-      border: 1px solid #d4b36c55;
-      border-radius: 18px;
-    }
-    h1 { font-size: 28px; margin: 0 0 8px; color: #d4b36c; letter-spacing: -0.5px; }
-    p { color: #b9b1a0; margin: 0 0 28px; font-size: 14px; }
-    a {
-      display: inline-block;
-      padding: 12px 28px;
-      background: #d4b36c;
-      color: #0d0c0a;
-      text-decoration: none;
-      border-radius: 999px;
-      font-weight: 800;
-      font-size: 13px;
-      letter-spacing: 0.6px;
-      text-transform: uppercase;
-      margin: 6px;
-    }
-    a:hover { opacity: 0.85; }
-  </style>
+  <meta name="description" content="Legal documents for the Wakkef! mobile game by AYN Developer — Privacy Policy and Account Deletion." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=DM+Sans:wght@400;500;600;700;800&family=Cairo:wght@400;600;800;900&family=El+Messiri:wght@600;700&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="assets/style.css" />
 </head>
-<body>
-  <div class="card">
-    <h1>Wakkef! · Legal</h1>
-    <p>Legal documents for the Wakkef! mobile game by AYN Developer.</p>
-    <a href="./privacy/">Privacy Policy</a>
-    <a href="./delete-account/">Delete Account</a>
+<body class="en">
+  <div class="lang-toggle">
+    <button id="btn-en" class="active" onclick="setLang('en')">EN</button>
+    <button id="btn-ar" onclick="setLang('ar')">العربية</button>
   </div>
+
+  <div class="page">
+    <header class="hero">
+      <span class="badge lang-en">Wakkef! · Legal</span>
+      <span class="badge lang-ar">وقّف! · القانونية</span>
+
+      <h1 class="lang-en">Wakkef! Legal</h1>
+      <h1 class="lang-ar">المستندات القانونية</h1>
+
+      <p class="subtitle lang-en">
+        Legal documents for the Wakkef! mobile game by AYN Developer.
+      </p>
+      <p class="subtitle lang-ar">
+        المستندات القانونية الخاصة بلعبة وقّف! من AYN Developer.
+      </p>
+    </header>
+
+    <div class="hub-links">
+      <a href="privacy/">
+        <span>
+          <span class="lang-en">Privacy Policy</span>
+          <span class="lang-ar">سياسة الخصوصية</span>
+          <span class="sub lang-en">What we collect and how we use it</span>
+          <span class="sub lang-ar">إيه اللي بنجمعه واستخداماته</span>
+        </span>
+        <span class="arrow">→</span>
+      </a>
+      <a href="delete-account/">
+        <span>
+          <span class="lang-en">Delete Account</span>
+          <span class="lang-ar">حذف الحساب</span>
+          <span class="sub lang-en">Remove your account and all your data</span>
+          <span class="sub lang-ar">احذف حسابك وكل بياناتك</span>
+        </span>
+        <span class="arrow">→</span>
+      </a>
+    </div>
+
+    <footer>
+      <p>
+        © 2026 <strong>AYN Developer</strong> · Wakkef!
+        <br />
+        <a href="mailto:ayn.developer@gmail.com">ayn.developer@gmail.com</a>
+      </p>
+    </footer>
+  </div>
+
+  <script>
+    function setLang(lang) {
+      document.body.className = lang;
+      document.documentElement.lang = lang === 'ar' ? 'ar' : 'en';
+      document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+      document.getElementById('btn-ar').classList.toggle('active', lang === 'ar');
+      try { localStorage.setItem('wakkef.legal.lang', lang); } catch (e) {}
+    }
+    (function () {
+      let saved = null;
+      try { saved = localStorage.getItem('wakkef.legal.lang'); } catch (e) {}
+      const initial = saved || (navigator.language && navigator.language.startsWith('ar') ? 'ar' : 'en');
+      setLang(initial);
+    })();
+  </script>
 </body>
 </html>

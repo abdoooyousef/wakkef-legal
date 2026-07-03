@@ -9,219 +9,10 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
-    href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800;900&family=Playfair+Display:wght@700;900&family=Inter:wght@400;500;600;700;800&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=DM+Sans:wght@400;500;600;700;800&family=Cairo:wght@400;600;800;900&family=El+Messiri:wght@600;700&display=swap"
     rel="stylesheet"
   />
-  <style>
-    :root {
-      --bg: #0d0c0a;
-      --bg-soft: #15140f;
-      --bg-card: #1c1a14;
-      --gold: #d4b36c;
-      --gold-soft: #d4b36c22;
-      --gold-border: #d4b36c55;
-      --text: #f5efe2;
-      --text-soft: #b9b1a0;
-      --text-faint: #7e786c;
-      --accent: #e57373;
-      --radius: 14px;
-      --maxw: 760px;
-    }
-
-    * { box-sizing: border-box; }
-
-    html, body {
-      margin: 0;
-      padding: 0;
-      background: var(--bg);
-      color: var(--text);
-      font-family: 'Inter', system-ui, -apple-system, sans-serif;
-      line-height: 1.7;
-      -webkit-font-smoothing: antialiased;
-    }
-
-    /* RTL when Arabic is active */
-    body.ar { direction: rtl; font-family: 'Cairo', system-ui, sans-serif; }
-    body.ar .lang-en { display: none; }
-    body.en .lang-ar { display: none; }
-
-    .page {
-      max-width: var(--maxw);
-      margin: 0 auto;
-      padding: 40px 24px 80px;
-    }
-
-    /* ── Header ───────────────────────────────────────────────── */
-    .hero {
-      text-align: center;
-      padding: 56px 0 40px;
-      border-bottom: 1px solid var(--gold-border);
-      margin-bottom: 40px;
-      position: relative;
-    }
-
-    .badge {
-      display: inline-block;
-      padding: 6px 14px;
-      background: var(--gold-soft);
-      border: 1px solid var(--gold-border);
-      border-radius: 999px;
-      font-size: 11px;
-      font-weight: 800;
-      letter-spacing: 2px;
-      color: var(--gold);
-      text-transform: uppercase;
-      margin-bottom: 18px;
-    }
-
-    h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: 42px;
-      font-weight: 900;
-      margin: 0 0 14px;
-      letter-spacing: -1px;
-      color: var(--text);
-    }
-    body.ar h1 { font-family: 'Cairo', sans-serif; letter-spacing: 0; }
-
-    .subtitle {
-      color: var(--text-soft);
-      font-size: 15px;
-      margin: 0 0 22px;
-    }
-
-    .updated {
-      display: inline-block;
-      color: var(--text-faint);
-      font-size: 12px;
-      font-weight: 600;
-      letter-spacing: 0.6px;
-      text-transform: uppercase;
-    }
-
-    /* ── Language toggle ──────────────────────────────────────── */
-    .lang-toggle {
-      position: fixed;
-      top: 18px;
-      right: 18px;
-      background: var(--bg-card);
-      border: 1px solid var(--gold-border);
-      border-radius: 999px;
-      padding: 4px;
-      display: flex;
-      gap: 4px;
-      z-index: 10;
-    }
-    body.ar .lang-toggle { right: auto; left: 18px; }
-
-    .lang-toggle button {
-      background: transparent;
-      border: 0;
-      padding: 6px 14px;
-      border-radius: 999px;
-      color: var(--text-soft);
-      cursor: pointer;
-      font-weight: 700;
-      font-size: 12px;
-      letter-spacing: 0.5px;
-      font-family: inherit;
-      transition: all 200ms ease;
-    }
-    .lang-toggle button.active {
-      background: var(--gold);
-      color: var(--bg);
-    }
-    .lang-toggle button:hover:not(.active) {
-      color: var(--text);
-    }
-
-    /* ── Sections ─────────────────────────────────────────────── */
-    section {
-      background: var(--bg-card);
-      border: 1px solid #2a261d;
-      border-radius: var(--radius);
-      padding: 28px 28px 24px;
-      margin-bottom: 18px;
-    }
-
-    section h2 {
-      font-family: 'Playfair Display', serif;
-      font-size: 22px;
-      margin: 0 0 14px;
-      color: var(--gold);
-      font-weight: 800;
-      letter-spacing: -0.3px;
-    }
-    body.ar section h2 { font-family: 'Cairo', sans-serif; }
-
-    section h3 {
-      font-size: 14px;
-      margin: 22px 0 8px;
-      color: var(--text);
-      font-weight: 800;
-      letter-spacing: 0.3px;
-    }
-
-    p, li { font-size: 15px; color: var(--text-soft); margin: 10px 0; }
-
-    ul { padding-left: 22px; }
-    body.ar ul { padding-left: 0; padding-right: 22px; }
-
-    li { margin: 6px 0; }
-
-    strong { color: var(--text); font-weight: 700; }
-
-    code, .mono {
-      font-family: 'JetBrains Mono', ui-monospace, Menlo, monospace;
-      background: var(--gold-soft);
-      color: var(--gold);
-      padding: 2px 7px;
-      border-radius: 5px;
-      font-size: 13px;
-    }
-
-    /* Highlighted disclaimer block */
-    .disclaimer {
-      background: linear-gradient(135deg, #2a1a1a, #1c1a14);
-      border: 1px solid #5e3a3a;
-      border-radius: var(--radius);
-      padding: 22px 24px;
-      margin: 28px 0;
-    }
-    .disclaimer h3 {
-      color: var(--accent);
-      margin-top: 0;
-      font-size: 13px;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-    }
-    .disclaimer p { color: var(--text); font-size: 14px; }
-
-    /* Footer */
-    footer {
-      text-align: center;
-      margin-top: 50px;
-      padding-top: 28px;
-      border-top: 1px solid #2a261d;
-      color: var(--text-faint);
-      font-size: 12px;
-    }
-
-    footer a {
-      color: var(--gold);
-      text-decoration: none;
-      font-weight: 700;
-    }
-    footer a:hover { text-decoration: underline; }
-
-    /* ── Mobile ───────────────────────────────────────────────── */
-    @media (max-width: 600px) {
-      .page { padding: 30px 18px 60px; }
-      h1 { font-size: 32px; }
-      section { padding: 22px 20px 18px; }
-      .hero { padding: 40px 0 30px; }
-    }
-  </style>
+  <link rel="stylesheet" href="../assets/style.css" />
 </head>
 <body class="en">
   <div class="lang-toggle">
@@ -235,7 +26,7 @@
     <!-- ═════════════════════════════════════════════════ -->
     <header class="hero">
       <span class="badge lang-en">Wakkef! · Legal</span>
-      <span class="badge lang-ar">وقف! · القانونية</span>
+      <span class="badge lang-ar">وقّف! · القانونية</span>
 
       <h1 class="lang-en">Privacy Policy</h1>
       <h1 class="lang-ar">سياسة الخصوصية</h1>
@@ -245,12 +36,12 @@
         AYN Developer.
       </p>
       <p class="subtitle lang-ar">
-        كيف نتعامل مع بياناتك داخل لعبة وقف! — لعبة الدقة والتوقيت
+        كيف نتعامل مع بياناتك داخل لعبة وقّف! — لعبة الدقة والتوقيت
         من AYN Developer.
       </p>
 
-      <span class="updated lang-en">Effective: May 20, 2026</span>
-      <span class="updated lang-ar">سارية من: 20 مايو 2026</span>
+      <span class="updated lang-en">Effective: July 3, 2026</span>
+      <span class="updated lang-ar">سارية من: 3 يوليو 2026</span>
     </header>
 
     <!-- ═════════════════════════════════════════════════ -->
@@ -277,18 +68,21 @@
 
         <h3>2.1 Account information (optional)</h3>
         <p>
-          If you choose to sign in with Google, we receive your
-          <strong>email address</strong> and <strong>display name</strong>
-          from Google Sign-In. You can play Wakkef! fully anonymously
-          without signing in — anonymous users are identified only by a
-          random device-scoped ID that contains no personal information.
+          If you choose to sign in with <strong>Google</strong> or
+          <strong>Apple</strong>, we receive your <strong>email
+          address</strong> and <strong>display name</strong> from that
+          provider (and, for Google, your profile photo if available). You
+          can play Wakkef! fully anonymously without signing in —
+          anonymous users are identified only by a random device-scoped ID
+          that contains no personal information.
         </p>
 
         <h3>2.2 User-generated content</h3>
         <p>
           When you create custom levels inside "My Studio", the
           <strong>photos</strong> you upload and the AI-extracted cutouts
-          are stored on Google Cloud (Firebase Storage) so you can play
+          are stored in your account on our <strong>Appwrite server</strong>
+          (self-hosted on Hetzner infrastructure we manage) so you can play
           them on any device signed in to your account. You can delete
           your photos and your account at any time.
         </p>
@@ -300,12 +94,13 @@
           on another device.
         </p>
 
-        <h3>2.4 Diagnostics &amp; crash reports</h3>
+        <h3>2.4 Diagnostics</h3>
         <p>
-          When the app crashes we collect anonymous crash logs and basic
-          device information (Android version, device model, app version)
-          via Firebase Crashlytics so we can fix bugs. No personal info is
-          attached.
+          Wakkef! does not send crash reports or diagnostic data to any
+          third-party analytics service. If the app encounters an error, a
+          technical log is kept <strong>only on your own device</strong> so
+          you can optionally share it with us if you report a problem —
+          it is never transmitted automatically.
         </p>
 
         <h3>2.5 Advertising identifiers</h3>
@@ -323,7 +118,6 @@
         <ul>
           <li>To run the game and sync progress across your devices.</li>
           <li>To moderate inappropriate user-generated content.</li>
-          <li>To diagnose crashes and improve stability.</li>
           <li>To display ads in the free version (via Google AdMob).</li>
           <li>To respond to support requests you send us.</li>
         </ul>
@@ -341,15 +135,16 @@
         </p>
         <ul>
           <li>
-            <strong>Firebase</strong> (Google) — Authentication, Firestore
-            database, Cloud Storage, Crashlytics.
+            <strong>Appwrite</strong> — account sign-in, database, and file
+            storage, self-hosted on infrastructure we manage.
           </li>
           <li>
-            <strong>Google AdMob</strong> — Advertising network for the
+            <strong>Google AdMob</strong> — advertising network for the
             free version.
           </li>
           <li>
-            <strong>Google Sign-In</strong> — Optional account login.
+            <strong>Google Sign-In</strong> and <strong>Sign in with
+            Apple</strong> — optional account login.
           </li>
         </ul>
       </section>
@@ -383,10 +178,9 @@
         <h2>7. Security</h2>
         <p>
           We use industry-standard measures (HTTPS for all transport,
-          Firebase security rules, encryption at rest provided by Google
-          Cloud) to protect your data. However, no method of transmission
-          or storage is 100% secure, and we cannot guarantee absolute
-          security.
+          per-account access rules, encryption at rest) to protect your
+          data. However, no method of transmission or storage is 100%
+          secure, and we cannot guarantee absolute security.
         </p>
       </section>
 
@@ -446,14 +240,14 @@
       <section>
         <h2>١. عن الناشر</h2>
         <p>
-          "وقف!" لعبة موبايل مجانية مطوّرة ومنشورة بواسطة
+          "وقّف!" لعبة موبايل مجانية مطوّرة ومنشورة بواسطة
           <strong>AYN Developer</strong> ("نحن"). سياسة الخصوصية دي
           بتشرح أنواع البيانات اللي اللعبة بتجمعها، إزاي بنستخدمها،
           والخيارات المتاحة لك.
         </p>
         <p>
-          بتثبيتك أو استخدامك للعبة "وقف!" أنت بتوافق على شروط السياسة
-          دي. لو مش موافق، من فضلك تـ uninstall اللعبة.
+          بتثبيتك أو استخدامك للعبة "وقّف!" أنت بتوافق على شروط السياسة
+          دي. لو مش موافق، من فضلك امسح اللعبة.
         </p>
       </section>
 
@@ -462,19 +256,22 @@
 
         <h3>٢.١ بيانات الحساب (اختياري)</h3>
         <p>
-          لو اخترت تـ sign in بحسابك في Google، بنستلم منه
-          <strong>الإيميل</strong> و<strong>اسم العرض</strong> بس. وتقدر
-          تلعب "وقف!" بشكل كامل بدون تسجيل دخول — في الحالة دي بيتعرفلك
-          ID عشوائي مربوط بالجهاز فقط، من غير أي معلومات شخصية.
+          لو اخترت تسجّل دخولك بحساب <strong>Google</strong> أو
+          <strong>Apple</strong>، بنستلم منه <strong>الإيميل</strong>
+          و<strong>اسم العرض</strong> (ولو Google، صورة البروفايل لو
+          موجودة). وتقدر تلعب "وقّف!" بشكل كامل بدون تسجيل دخول — في
+          الحالة دي بيتعرفلك ID عشوائي مربوط بالجهاز فقط، من غير أي
+          معلومات شخصية.
         </p>
 
         <h3>٢.٢ المحتوى اللي بتعمله</h3>
         <p>
           لما بتعمل levels مخصصة من خلال "My Studio"، الـ
-          <strong>صور</strong> اللي بتـ upload والـ cutouts المستخرجة
-          منها بـ AI بتتخزن على Google Cloud (Firebase Storage) عشان
-          تقدر تلعبها من أي جهاز مسجل دخوله بحسابك. وتقدر تحذف صورك
-          وحسابك في أي وقت.
+          <strong>صور</strong> اللي بترفعها والـ cutouts المستخرجة
+          منها بالذكاء الاصطناعي بتتخزن في حسابك على
+          <strong>سيرفر Appwrite</strong> بتاعنا (مُستضاف ذاتيًا على
+          بنية تحتية بنديرها إحنا) عشان تقدر تلعبها من أي جهاز مسجل
+          دخوله بحسابك. وتقدر تحذف صورك وحسابك في أي وقت.
         </p>
 
         <h3>٢.٣ بيانات اللعب</h3>
@@ -484,17 +281,17 @@
           نفس النقطة على أي جهاز تاني.
         </p>
 
-        <h3>٢.٤ تقارير الأعطال (Crashes)</h3>
+        <h3>٢.٤ التشخيصات</h3>
         <p>
-          لما اللعبة بتقع crashes بنجمع تقارير مجهولة الهوية + معلومات
-          أساسية عن الجهاز (نسخة Android، موديل الجهاز، نسخة اللعبة)
-          عن طريق Firebase Crashlytics عشان نصلّح الـ bugs. مفيش بيانات
-          شخصية مرفقة.
+          "وقّف!" مبيبعتش تقارير أعطال أو بيانات تشخيصية لأي خدمة تحليل
+          خارجية. لو اللعبة واجهت مشكلة، بيتحفظ سجل تقني <strong>على
+          جهازك بس</strong> عشان تقدر تشاركه معانا اختياريًا لو حبيت
+          تبلّغ عن مشكلة — مبيتبعتش تلقائيًا أبدًا.
         </p>
 
         <h3>٢.٥ معرّفات الإعلانات</h3>
         <p>
-          النسخة المجانية من "وقف!" بتعرض إعلانات عن طريق Google AdMob.
+          النسخة المجانية من "وقّف!" بتعرض إعلانات عن طريق Google AdMob.
           AdMob ممكن تستخدم <strong>Advertising ID</strong> الخاص
           بجهازك لعرض إعلانات مخصصة أو غير مخصصة، حسب إعدادات جهازك.
           تقدر تعمل reset أو opt-out من الإعلانات المخصصة في أي وقت من
@@ -507,7 +304,6 @@
         <ul>
           <li>تشغيل اللعبة ومزامنة التقدم بين أجهزتك.</li>
           <li>مراجعة المحتوى المنشأ من المستخدمين لو فيه مخالفات.</li>
-          <li>اكتشاف الأخطاء وتحسين استقرار اللعبة.</li>
           <li>عرض إعلانات في النسخة المجانية (عن طريق Google AdMob).</li>
           <li>الرد على طلبات الدعم اللي بتبعتها لنا.</li>
         </ul>
@@ -520,20 +316,21 @@
       <section>
         <h2>٤. خدمات الطرف الثالث</h2>
         <p>
-          "وقف!" بتعتمد على الخدمات التالية، وكل واحدة منهم عندها
+          "وقّف!" بتعتمد على الخدمات التالية، وكل واحدة منهم عندها
           سياسة خصوصية خاصة بيها بنوصيك تقرأها:
         </p>
         <ul>
           <li>
-            <strong>Firebase</strong> (Google) — المصادقة، قاعدة البيانات
-            Firestore، تخزين الـ Cloud، و Crashlytics.
+            <strong>Appwrite</strong> — تسجيل الدخول، قاعدة البيانات،
+            وتخزين الملفات، مُستضافة ذاتيًا على بنية تحتية بنديرها إحنا.
           </li>
           <li>
             <strong>Google AdMob</strong> — شبكة الإعلانات في النسخة
             المجانية.
           </li>
           <li>
-            <strong>Google Sign-In</strong> — تسجيل دخول اختياري.
+            <strong>Google Sign-In</strong> و<strong>Sign in with
+            Apple</strong> — تسجيل دخول اختياري.
           </li>
         </ul>
       </section>
@@ -556,7 +353,7 @@
       <section>
         <h2>٦. الأطفال</h2>
         <p>
-          "وقف!" مصنّفة للأعمار <strong>١٣ سنة فما فوق</strong>. مش
+          "وقّف!" مصنّفة للأعمار <strong>١٣ سنة فما فوق</strong>. مش
           بنقصد ولا بنجمع بيانات شخصية من أطفال أقل من ١٣ سنة. لو
           عندك شك إن طفل ابعتلنا بيانات شخصية، اتواصل معانا وهنحذفها
           فوراً.
@@ -566,10 +363,10 @@
       <section>
         <h2>٧. الأمان</h2>
         <p>
-          بنستخدم إجراءات أمنية معيارية (HTTPS لكل النقل، Firebase
-          security rules، تشفير على الـ storage من Google Cloud)
-          لحماية بياناتك. لكن مفيش طريقة نقل أو تخزين آمنة بنسبة ١٠٠٪،
-          وبالتالي مش بنقدر نضمن أمان مطلق.
+          بنستخدم إجراءات أمنية معيارية (HTTPS لكل النقل، صلاحيات وصول
+          مخصصة لكل حساب، وتشفير على الـ storage) لحماية بياناتك. لكن
+          مفيش طريقة نقل أو تخزين آمنة بنسبة ١٠٠٪، وبالتالي مش بنقدر
+          نضمن أمان مطلق.
         </p>
       </section>
 
@@ -585,7 +382,7 @@
       <section class="disclaimer">
         <h3>٩. إخلاء المسؤولية وحدود الالتزام</h3>
         <p>
-          لعبة "وقف!" بتُقدَّم <strong>"كما هي" و"كما هي متاحة"</strong>
+          لعبة "وقّف!" بتُقدَّم <strong>"كما هي" و"كما هي متاحة"</strong>
           من غير ضمانات من أي نوع، صريحة أو ضمنية، بما في ذلك على سبيل
           المثال لا الحصر ضمانات قابلية التسويق، أو الملاءمة لغرض معين،
           أو عدم انتهاك الحقوق، أو التشغيل المستمر بدون أخطاء.
@@ -603,8 +400,8 @@
           بإمكانية حدوث مثل هذه الأضرار.
         </p>
         <p>
-          أنت بتوافق إن حقك الحصري والوحيد في حالة عدم رضاك عن "وقف!"
-          هو إنك توقف استخدامك للعبة و تـ uninstall التطبيق. بتثبيتك
+          أنت بتوافق إن حقك الحصري والوحيد في حالة عدم رضاك عن "وقّف!"
+          هو إنك توقف استخدامك للعبة وتمسحها من جهازك. بتثبيتك
           واستخدامك للعبة، أنت بتقر إنك قرأت وفهمت وقبلت إخلاء
           المسؤولية ده بالكامل.
         </p>
@@ -624,10 +421,12 @@
     <!-- ═════════════════════════════════════════════════ -->
     <footer>
       <p>
-        © 2026 <a href="#">AYN Developer</a> · Wakkef!
+        © 2026 <strong>AYN Developer</strong> · Wakkef!
         <br />
         <span class="lang-en">All rights reserved.</span>
         <span class="lang-ar">جميع الحقوق محفوظة.</span>
+        <br />
+        <a href="mailto:ayn.developer@gmail.com">ayn.developer@gmail.com</a>
       </p>
     </footer>
   </div>
@@ -639,13 +438,13 @@
       document.getElementById('btn-en').classList.toggle('active', lang === 'en');
       document.getElementById('btn-ar').classList.toggle('active', lang === 'ar');
       // Persist so refresh keeps the choice.
-      try { localStorage.setItem('wakkef.privacy.lang', lang); } catch (e) {}
+      try { localStorage.setItem('wakkef.legal.lang', lang); } catch (e) {}
     }
 
     // Restore preferred language on load, else detect from browser.
     (function () {
       let saved = null;
-      try { saved = localStorage.getItem('wakkef.privacy.lang'); } catch (e) {}
+      try { saved = localStorage.getItem('wakkef.legal.lang'); } catch (e) {}
       const initial = saved
         || (navigator.language && navigator.language.startsWith('ar') ? 'ar' : 'en');
       setLang(initial);
